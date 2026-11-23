@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankara Anadolu Geri Dönüşümcüleri İhtisas Organize Sanayi Bölgesi</title>
+    <!-- GitHub Pages uyumlu harici favicon -->
+    <link rel="icon" type="image/png" href="./logo.png">
+    <style>
+        /* Kurumsal Renk Değişkenleri */
+        :root {
+            --color-teal: #0e8ba6;
+            --color-teal-light: #e6f4f7;
+            --color-green: #78be20;
+            --color-green-light: #f0f8e6;
+            --color-slate: #2c3e50;
+            --color-slate-light: #eaeef2;
+            --color-text-main: #1e293b;
+            --color-text-muted: #526071;
+            --color-bg: #f4f7f9;
+            --color-surface: #ffffff;
+            --color-border: #e2e8f0;
+        }
+
+        /* Temel Sıfırlama ve Tipografi */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: radial-gradient(circle at top left, rgba(14, 139, 166, 0.06), transparent 40%),
+                        radial-gradient(circle at bottom right, rgba(120, 190, 32, 0.06), transparent 40%),
+                        var(--color-bg);
+            color: var(--color-text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Üst Kurumsal Renk Şeridi */
+        .top-accent-bar {
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--color-teal) 0%, var(--color-green) 50%, var(--color-slate) 100%);
+        }
+
+        /* Ana Taşıyıcı */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.25rem;
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Logo Çerçevesi ve Görsel Ayarları */
+        .logo-wrapper {
+            background-color: var(--color-surface);
+            padding: 1.25rem 1.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px -5px rgba(44, 62, 80, 0.08), 0 4px 10px -3px rgba(44, 62, 80, 0.04);
+            border: 1px solid var(--color-border);
+            margin-bottom: 1.75rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo-wrapper:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -5px rgba(14, 139, 166, 0.14);
+        }
+
+        .logo-img {
+            width: auto;
+            height: auto;
+            max-width: 220px;
+            max-height: 220px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Üst Kurumsal Etiket */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--color-slate);
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .badge-dot-green {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--color-green);
+        }
+
+        .badge-dot-teal {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--color-teal);
+        }
+
+        /* Ana Karşılama Başlığı */
+        h1 {
+            font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            color: var(--color-slate);
+            line-height: 1.25;
+            max-width: 860px;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        h1 .highlight {
+            display: block;
+            margin-top: 0.25rem;
+            background: linear-gradient(90deg, var(--color-teal), var(--color-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            color: var(--color-text-muted);
+            max-width: 640px;
+            margin-bottom: 2.75rem;
+        }
+
+        /* 3'lü Kart Izgarası */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.75rem;
+            width: 100%;
+        }
+
+        /* Kart Stilleri */
+        .action-card {
+            position: relative;
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 1.125rem;
+            padding: 2.25rem 1.75rem;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(44, 62, 80, 0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            overflow: hidden;
+        }
+
+        .action-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            transition: height 0.25s ease;
+        }
+
+        .action-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 32px -8px rgba(44, 62, 80, 0.12);
+        }
+
+        /* Kart Renk Varyasyonları */
+        .card-teal::before { background-color: var(--color-teal); }
+        .card-teal:hover { border-color: rgba(14, 139, 166, 0.45); }
+        .card-teal .icon-box { background-color: var(--color-teal-light); color: var(--color-teal); }
+        .card-teal:hover .icon-box { background-color: var(--color-teal); color: #ffffff; }
+        .card-teal .card-link { color: var(--color-teal); }
+
+        .card-green::before { background-color: var(--color-green); }
+        .card-green:hover { border-color: rgba(120, 190, 32, 0.45); }
+        .card-green .icon-box { background-color: var(--color-green-light); color: var(--color-green); }
+        .card-green:hover .icon-box { background-color: var(--color-green); color: #ffffff; }
+        .card-green .card-link { color: var(--color-green); }
+
+        .card-slate::before { background-color: var(--color-slate); }
+        .card-slate:hover { border-color: rgba(44, 62, 80, 0.45); }
+        .card-slate .icon-box { background-color: var(--color-slate-light); color: var(--color-slate); }
+        .card-slate:hover .icon-box { background-color: var(--color-slate); color: #ffffff; }
+        .card-slate .card-link { color: var(--color-slate); }
+
+        /* İkon Kutusu */
+        .icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .icon-box svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .action-card h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--color-slate);
+            margin-bottom: 0.65rem;
+        }
+
+        .action-card p {
+            font-size: 0.925rem;
+            color: var(--color-text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .card-link svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.25s ease;
+        }
+
+        .action-card:hover .card-link svg {
+            transform: translateX(4px);
+        }
+
+        /* Alt Bilgi (Footer) */
+        footer {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-top: 1px solid var(--color-border);
+            padding: 1.25rem 1.5rem;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+        }
+
+        .footer-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+        }
+
+        .footer-title {
+            font-weight: 600;
+            color: var(--color-slate);
+        }
+
+        /* Mobil ve Tablet Uyumluluğu */
+        @media (max-width: 860px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding: 2rem 1rem;
+            }
+            .footer-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-accent-bar"></div>
+
+    <main>
+        <!-- Dışarıdan ./logo.png dosyasını yükleyen logo alanı -->
+        <div class="logo-wrapper">
+            <img 
+                src="./logo.png" 
+                alt="Ankara Anadolu Geri Dönüşümcüleri İhtisas Organize Sanayi Bölgesi Logosu" 
+                class="logo-img"
+                onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-weight:800;font-size:1.5rem;color:#0e8ba6;padding:1rem;\'>AGD OSB</span>';"
+            >
+        </div>
+
+        <div class="badge">
+            <span class="badge-dot-green"></span>
+            <span>Sürdürülebilir Sanayi &amp; Çevre Teknolojileri</span>
+            <span class="badge-dot-teal"></span>
+        </div>
+
+        <h1>
+            Ankara Anadolu Geri Dönüşümcüleri İhtisas Organize Sanayi Bölgesi'ne
+            <span class="highlight">Hoş Geldiniz.</span>
+        </h1>
+
+        <p class="subtitle">
+            Bölgemizdeki yatırım, altyapı ve süreç yönetimi işlemlerine aşağıdaki ilgili hizmet başlıklarından hızlıca ulaşabilirsiniz.
+        </p>
+
+        <section class="cards-grid" aria-label="Hizmet Başlıkları">
+            <!-- 1. Kart: Kamulaştırma -->
+            <a href="https://agdosb.github.io/kamulastirma/" class="action-card card-teal">
+                <div class="icon-box" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                    </svg>
+                </div>
+                <h2>Kamulaştırma</h2>
+                <p>Bölge sınırları içerisindeki parsel planlamaları, kamulaştırma süreçleri ve duyurular.</p>
+                <span class="card-link">
+                    Sayfaya Git
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </span>
+            </a>
+
+            <!-- 2. Kart: Tahsis -->
+            <a href="https://agdosb.github.io/tahsis/" class="action-card card-green">
+                <div class="icon-box" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                </div>
+                <h2>Tahsis</h2>
+                <p>Sanayi parseli ön tahsis başvuruları, katılımcı şartları ve alan dağılım bilgileri.</p>
+                <span class="card-link">
+                    Sayfaya Git
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </span>
+            </a>
+
+            <!-- 3. Kart: İnşaat -->
+            <a href="https://agdosb.github.io/insaat/" class="action-card card-slate">
+                <div class="icon-box" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                    </svg>
+                </div>
+                <h2>İnşaat</h2>
+                <p>Altyapı çalışmaları, yapı ruhsatı işlemleri, imar durumu ve saha ilerleme raporları.</p>
+                <span class="card-link">
+                    Sayfaya Git
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </span>
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span class="footer-title">&copy; 2025 Ankara Anadolu Geri Dönüşümcüleri İhtisas Organize Sanayi Bölgesi</span>
+            <span>Tüm Hakları Saklıdır.</span>
+        </div>
+    </footer>
+
+</body>
+</html>
